@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = box
   config.vm.hostname = hostname
   config.vm.network "private_network", ip: ip
-  config.vm.synced_folder "src/", "/home/vagrant/{{project_name}}", type: "nfs"
+  config.vm.synced_folder "src/", "/home/vagrant/{{project_name}}"
 
   config.vm.provider :virtualbox do |vb|
     #  vb.gui = true

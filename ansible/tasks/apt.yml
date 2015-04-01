@@ -1,0 +1,24 @@
+
+- name: actualiza apt-get
+  sudo: true
+  apt: update_cache=yes
+
+- name: apt-get install items
+  apt: name={{item}} state=present
+  sudo: true
+  with_items:
+    - libldap2-dev
+    - libmysqlclient-dev
+    - libsasl2-dev
+    - libssl-dev
+    - build-essential
+    - python-dev
+    - python-pip
+    - python-mysqldb
+    - git
+    - unzip
+    - htop
+    - zsh
+    - mysql-server
+    - supervisor
+    - nginx

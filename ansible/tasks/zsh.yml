@@ -1,0 +1,16 @@
+
+- name: Clone oh-my-zsh repo
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+- name: create_folder_conf_zsh
+  file: path=~/conf/ state=directory owner=vagrant
+
+- name: remove standard zshrc
+  file: path=~/.zshrc state=absent
+
+- name: deploy .zshrc
+  template: src=templates/.zshrc dest=~/.zshrc owner=vagrant
+
+- name: Set zsh as default shell
+  sudo: true
+  user: name=vagrant shell=/bin/zsh

@@ -1,0 +1,27 @@
+
+- name: Create folder logs
+  file: path=/home/vagrant/logs state=directory
+
+- name: Stack Nginx nginx.conf
+  sudo: yes
+  copy: src=stack/nginx/nginx.conf dest=/etc/nginx/nginx.conf owner=root group=root force=yes
+
+- name: Stack Nginx {{project_name}}.dev
+  sudo: yes
+  copy: src=stack/nginx/sites-available/{{project_name}}.dev dest=/etc/nginx/sites-available/{{project_name}}.dev owner=root group=root force=yes
+
+- name: Create symlink to {{project_name}}.dev
+  sudo: yes
+  file: src=/etc/nginx/sites-available/{{project_name}}.dev dest=/etc/nginx/sites-enabled/{{project_name}}.dev state=link
+  notify:
+    - restart nginx
+
+- name: Stack Supervisor -> supervisord.conf
+  sudo: yes
+  copy: src=stack/supervisor/supervisord.conf dest=/etc/supervisor/supervisord.conf
+
+- name: Stack supervisor -> {{project_name}}.conf
+  sudo: yes
+  copy: src=stack/supervisor/{{project_name}}.conf dest=/etc/supervisor/conf.d/{{project_name}}.conf
+  notify:
+    - start supervisor

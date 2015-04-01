@@ -1,0 +1,6 @@
+tasks:
+  - name: create_user
+    # Crea usuario
+    user: name={{project_name}} shell=/bin/bash groups=sudoers password=paSrNUEx5Jimc
+    command: sudo echo 'source /usr/local/bin/virtualenvwrapper.sh' >> /home/{{project_name}}/.zshrc
+    when: ansible_hostname == "h{{project_name}}"

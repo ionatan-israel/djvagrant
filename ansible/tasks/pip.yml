@@ -1,7 +1,7 @@
 
 - name: Install Virtualenvwrapper
   sudo: true
-  command: pip install {{ item }} --upgrade
+  command: pip install {item} --upgrade
   with_items:
     - pip
     - argparse

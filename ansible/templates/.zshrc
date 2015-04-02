@@ -77,6 +77,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
 
 # Necestario para "pip install mysql-python"
+# http://stackoverflow.com/questions/22629206/python-virtualenv-pip-install-mysql-python-causing-runtimeerror-maximum-recurs
 export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
 

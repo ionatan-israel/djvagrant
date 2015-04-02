@@ -14,7 +14,7 @@
   command: pip install -r /home/vagrant/{{project_name}}/requirements.txt
 
 # - name: Create virtualenv
-#   shell: . ~/.zshrc && mkvirtualenv pxo
+#   shell: . ~/.zshrc && mkvirtualenv {{project_name}}
 #   args:
 #     executable: /bin/zsh
-#     creates: "pxo"
+#     creates: "{{project_name}}"

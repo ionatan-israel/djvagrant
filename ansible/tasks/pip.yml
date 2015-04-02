@@ -1,20 +1,21 @@
 
-- name: Install Virtualenvwrapper
+- name: Install virtualenvwrapper
   sudo: true
-  command: pip install {item} --upgrade
+  command: pip install {{item}} --upgrade
   with_items:
     - pip
     - argparse
     - six
     - pbr
     - stevedore
+    - virtualenvwrapper
 
-- name: Install requirements of project
-  sudo: true
-  command: pip install -r /home/vagrant/{{project_name}}/requirements.txt
+- name: Create virtualenv
+  shell: . ~/.zshrc && mkvirtualenv {{project_name}}
+  args:
+    executable: /bin/zsh
+    creates: "{{project_name}}"
 
-# - name: Create virtualenv
-#   shell: . ~/.zshrc && mkvirtualenv {{project_name}}
-#   args:
-#     executable: /bin/zsh
-#     creates: "{{project_name}}"
+- name: Install requirements of the project
+  pip: requirements=/home/vagrant/{{project_name}}/requirements.txt virtualenv=/home/vagrant/.virtualenvs/{{project_name}}/
+

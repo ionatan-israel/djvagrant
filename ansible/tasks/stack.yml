@@ -23,5 +23,4 @@
   copy: src=stack/supervisor/{{project_name}}.conf dest=/etc/supervisor/conf.d/{{project_name}}.conf
   notify:
     - start supervisor
-    - restart supervisor
     - restart nginx

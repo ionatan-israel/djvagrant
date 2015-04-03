@@ -101,5 +101,5 @@ alias ghtml="grep -rn --include \*.html"
 alias gcss="grep -rn --include \*.css"
 
 # Virtualenvwrapper
-# export WORKON_HOME=$HOME/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

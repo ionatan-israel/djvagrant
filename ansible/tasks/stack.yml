@@ -13,8 +13,6 @@
 - name: Create symlink to {{project_name}}.dev
   sudo: yes
   file: src=/etc/nginx/sites-available/{{project_name}}.dev dest=/etc/nginx/sites-enabled/{{project_name}}.dev state=link
-  notify:
-    - restart nginx
 
 - name: Stack Supervisor -> supervisord.conf
   sudo: yes
@@ -24,4 +22,6 @@
   sudo: yes
   copy: src=stack/supervisor/{{project_name}}.conf dest=/etc/supervisor/conf.d/{{project_name}}.conf
   notify:
+    - start supervisor
     - restart supervisor
+    - restart nginx

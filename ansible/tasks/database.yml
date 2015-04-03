@@ -27,3 +27,5 @@
 
 - name: Create user for database
   mysql_user: name=master password=master priv=*.*:ALL,GRANT login_user=root login_password=root1234 state=present
+  notify:
+    - restart supervisor

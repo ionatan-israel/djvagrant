@@ -1,17 +1,11 @@
-## djvagrant
+# Djvagrant
 
-### Uso:
+### Basic Installation
 
-```shell
-django-admin.py startproject --template=https://github.com/jrperdomoz/djvagrant/archive/master.zip -e=py,conf,rst,bat,yml,rb,dev project_name
-```
+#### via curl
 
-### Renombrar Vagrantfile
-```shell
-mv Vagrantfile.rb Vagrantfile
-```
+`curl -L https://raw.githubusercontent.com/jrperdomoz/djvagrant/master/tools/install.sh | sh`
 
-### Arrancar maquina
-```shell
-vagrant up
-```
+#### via wget
+
+`wget https://raw.githubusercontent.com/jrperdomoz/djvagrant/master/tools/install.sh -O - | sh`

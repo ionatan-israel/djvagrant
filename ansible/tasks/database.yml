@@ -10,7 +10,7 @@
   sudo: yes
   mysql_user:
     name: root
-    host: "$item"
+    host: "{{item}}"
     password: root1234
     login_user: root
     login_password: root1234

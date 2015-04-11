@@ -4,7 +4,7 @@
   apt: update_cache=yes
 
 - name: apt-get install items
-  apt: name=$item state=present
+  apt: name={{item}} state=present
   sudo: true
   with_items:
     - libldap2-dev

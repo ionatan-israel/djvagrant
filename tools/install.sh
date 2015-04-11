@@ -11,4 +11,5 @@ cd $project_name
 # For fix "sed: RE error: illegal byte sequence"
 export LC_CTYPE=C
 export LANG=C
-find . -type f -print0 | xargs -0 sed -i '' -e 's/{{project_name}}/$project_name/g'
+find .  -name "*.yml, *.rb, *.conf" -print0 | xargs -0 sed -i '' -e 's/{{project_name}}/$project_name/g'
+

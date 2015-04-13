@@ -4,6 +4,7 @@
 
 * Unix-based operating system (Mac OS X or Linux)
 * Vagrant installed
+* vagrant-vbguest installed: `vagrant plugin install vagrant-vbguest`
 * Virtualbox installed
 * Ansible installed `brew install ansible`
 * `git` and `curl` or `wget` should be installed
